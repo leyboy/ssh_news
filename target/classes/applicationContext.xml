@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<context:property-placeholder location="classpath:jdbc.properties" />
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="user" value="${dataSource.user}"></property>
+		<property name="password" value="${dataSource.password}"></property>
+		<property name="driverClass" value="${dataSource.driverClass}"></property>
+		<property name="jdbcUrl" value="${dataSource.jdbcUrl}"></property>
+		<property name="initialPoolSize" value="${dataSource.initialPoolSize}"></property>
+		<property name="maxIdleTime" value="${dataSource.maxIdleTime}"></property>
+		<property name="maxPoolSize" value="${dataSource.maxPoolSize}"></property>
+		<property name="minPoolSize" value="${dataSource.minPoolSize}"></property>
+		<property name="maxStatements" value="${dataSource.maxStatements}"></property>
+	</bean>
+
+</beans>
