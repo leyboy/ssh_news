@@ -28,6 +28,11 @@ public class TestConnection {
 	public void testConnection() throws SQLException{
 		System.out.println(dataSource.getConnection());
 	}
+	
+	@Test
+	public void testConnection1(){
+		System.out.println("1234");
+	}
 
 
 }
