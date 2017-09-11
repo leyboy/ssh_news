@@ -112,7 +112,11 @@
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>${hibernate.validator.version}</version>
-			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>3.0-b08</version>
 		</dependency>
 
 
@@ -264,5 +268,4 @@
 		</dependency>
 
 	</dependencies>
-
 </project>
