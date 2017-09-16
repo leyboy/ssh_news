@@ -12,7 +12,7 @@ import javax.validation.Validator;
 public final class ValidatorErrorUtil {
 
 	public static String getValidatorErrors(Object object) {
-        StringBuffer buffer = new StringBuffer(64);//用于存储验证后的错误信息  
+        StringBuilder buffer = new StringBuilder(64);//用于存储验证后的错误信息  
         
         Validator validator = Validation.buildDefaultValidatorFactory()  
                 .getValidator();  

@@ -12,12 +12,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestConnection {
 
+
 	private ApplicationContext ctx = null;
 	private DataSource dataSource = null;
 	{
 		ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
 		dataSource = ctx.getBean(DataSource.class);
 	}
+	
 
 	@Test
 	public void test() {
@@ -28,5 +30,6 @@ public class TestConnection {
 	public void testConnection() throws SQLException {
 		System.out.println(dataSource.getConnection());
 	}
+
 
 }

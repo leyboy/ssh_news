@@ -1,5 +1,7 @@
 package com.ssh_news.bean;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,10 +12,20 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity
-@Table(name = "tb_admin", catalog = "maven_ssh_news")
-public class Admin {
+import com.ssh_news.util.commons.NewsConstants;
 
+/**
+ * 
+ * admin class 管理员实体类
+ **/
+@Entity
+@Table(name = "tb_admin", catalog = NewsConstants.CATALOG_NAME)
+public class Admin implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String loginName;
 	private String password;
@@ -52,7 +64,7 @@ public class Admin {
 	}
 
 	@Column(name = "password", length = 18, nullable = true)
-	@Pattern(regexp = "(^[a-zA-Z0-9_-]{5,17}$)", message = " 密码以字母开头,长度在5~17 之间,只能包含字符,数字和下划线")
+	@Pattern(regexp = "(^[a-zA-Z0-9_-]{5,17}$)", message = " 密码以数字或字母开头,长度在5~17 之间,只能包含字符,数字和下划线")
 	public String getPassword() {
 		return password;
 	}
