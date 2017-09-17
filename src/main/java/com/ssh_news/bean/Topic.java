@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Pattern;
+
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -58,7 +58,6 @@ public class Topic implements Serializable {
 	}
 
 	@Column(name = "titleName", nullable = false, length = 50)
-	@Pattern(regexp = "(^[a-zA-Z]{4,50}$)|(^[\u2E80-\u9FFF]{2,20})", message = "主题名必须是3-20位中文或者4-50位英文")
 	public String getTitleName() {
 		return titleName;
 	}
@@ -67,7 +66,7 @@ public class Topic implements Serializable {
 		this.titleName = titleName;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "topic")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "topic")
 	@Cascade(CascadeType.DELETE)
 	public Set<Newsinfo> getNewsinfos() {
 		return newsinfos;

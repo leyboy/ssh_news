@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -54,7 +53,6 @@ public class Admin implements Serializable{
 	}
 
 	@Column(name = "loginName", length = 30, nullable = false)
-	@Pattern(regexp = "(^[a-zA-Z0-9_-]{6,16}$)|(^[\u2E80-\u9FFF]{2,5})", message = "用户名必须是2-5位中文或者6-16位英文和数字的组合")
 	public String getLoginName() {
 		return loginName;
 	}
@@ -64,7 +62,6 @@ public class Admin implements Serializable{
 	}
 
 	@Column(name = "password", length = 18, nullable = true)
-	@Pattern(regexp = "(^[a-zA-Z0-9_-]{5,17}$)", message = " 密码以数字或字母开头,长度在5~17 之间,只能包含字符,数字和下划线")
 	public String getPassword() {
 		return password;
 	}

@@ -11,7 +11,7 @@ import com.ssh_news.dao.BaseDao;
 /**
  * admin dao impl
  * **/
-@Repository("adminDao")
+@Repository
 public class AdminDaoImpl extends BaseDao<Admin> implements AdminDao {
 
 	@SuppressWarnings("unchecked")
